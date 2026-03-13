@@ -1,0 +1,53 @@
+package adriansyah uts;
+
+
+import java.util.Scanner;
+
+
+public class adriansyah uts {
+
+    public static void main(String[] args) {
+
+        Scanner keyboard = new Scanner(System.in);
+
+        int totalMk;
+        String namaMk, sks, nilaiMk;
+        int bobot = 0;
+
+        int totalSks = 0;
+        int totalNilai = 0;
+
+        System.out.print("Masukan total MK: ");
+        totalMk = keyboard.nextInt();
+        keyboard.nextLine();
+
+        for (int i = 1; i <= totalMk; i++) {
+            System.out.println("\nMata Kuliah ke-" + i);
+            System.out.print("Nama MK : ");
+            namaMk = keyboard.nextLine();
+            System.out.print("Jumlah SKS : ");
+            sks = keyboard.nextLine();
+            System.out.print("Nilai Huruf : ");
+            nilaiMk = keyboard.nextLine();
+            int sksInt = Integer.parseInt(sks);
+            if (nilaiMk.equalsIgnoreCase("A")) {
+                bobot = 4;
+            } else if (nilaiMk.equalsIgnoreCase("B")) {
+                bobot = 3;
+            } else if (nilaiMk.equalsIgnoreCase("C")) {
+                bobot = 2;
+            } else if (nilaiMk.equalsIgnoreCase("D")) {
+                bobot = 1;
+            } else {
+                bobot = 0;
+            }
+            totalSks += sksInt;
+            totalNilai += bobot * sksInt;
+        }
+        double ips = (double) totalNilai / totalSks;
+
+        System.out.println("\nTotal SKS Semester : " + totalSks);
+        System.out.println("Total Nilai : " + totalNilai);
+        System.out.println("IPS : " + ips);
+    }
+}
